@@ -1,0 +1,67 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Book Results
+{% endblock %}
+
+{% block main %}
+  <!-- http://getbootstrap.com/docs/4.1/components/alerts/ -->
+    <div class="split left">
+        <h1>{{ book.title }}</h1>
+        <br>
+        <p>Author: {{ book.author }}</p>
+        <p>Publication Year: {{ book.year }}</p>
+        <p>ISBN Number: {{ book.isbn }}</p>
+        <br>
+        <h3>Previous Reviews</h3>
+        <table class="table table-sm">
+            <tr>
+                <th scope="col">User</th>
+                <th scope="col">Rating</th>
+                <th scope="col">Review</th>
+              </tr>
+                  {% for review in reviews %}
+                    <tr>
+                        <td>
+                            {{ review.username }}
+                        </td>
+                        <td>
+                            {{ review.rating }}
+                        </td>
+                        <td>
+                            {{ review.content }}
+                        </td>
+                    </tr>
+                  {% endfor %}
+        </table>
+    </div>
+    <br>
+    <div class="split right">
+        <h1>Submit a review:</h1>
+        <form action="/books/{{ id }}" method="post">
+            <div class="form-group"><center>
+                <div class="rate" name="rating">
+                    <input type="radio" id="star5" name="rating" value="5" />
+                    <label for="star5" title="text">5 stars</label>
+                    <input type="radio" id="star4" name="rating" value="4" />
+                    <label for="star4" title="text">4 stars</label>
+                    <input type="radio" id="star3" name="rating" value="3" />
+                    <label for="star3" title="text">3 stars</label>
+                    <input type="radio" id="star2" name="rating" value="2" />
+                    <label for="star2" title="text">2 stars</label>
+                    <input type="radio" id="star1" name="rating" value="1" />
+                    <label for="star1" title="text">1 star</label>
+                </div>
+                </center>
+            </div>
+            <div class="form-group">
+                <textarea name="review" rows="10" cols="50"></textarea>
+            </div>
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+    <br>
+
+
+
+{% endblock %}

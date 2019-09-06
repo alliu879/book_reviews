@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="form-group">
+        <h1>Search for a book!</h1>
+    </div>
+    <form action="/" method="post">
+        <div class="form-group">
+            <select name="option">
+                <option value="isbn">ISBN Number</option>
+                <option value="title">Title</option>
+                <option value="author">Author</option>
+            </select>
+            <input class="form-control" name="search" type="text">
+        </div>
+        <button class="btn btn-primary" type="submit">Find Book</button>
+    </form>
+{% endblock %}
