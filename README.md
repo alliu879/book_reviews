@@ -1,4 +1,4 @@
-# Project 1
+Book Reviews
 
 Web Programming with Python and JavaScript
 
@@ -28,5 +28,3 @@ Columns in Tables
     content (varchar)
     rating (int)
     userid (int)
-
-I was given an extension by Brian Yu.
